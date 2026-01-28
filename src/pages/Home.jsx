@@ -1,9 +1,11 @@
+import NavBar from "../components/NavBar"
 
 function Home() {
 
     return (
         <>
-            <h1>Benvenuto nel nostro store</h1>
+            <NavBar />
+            <h1 className="container">Benvenuto nella tua Home</h1>
         </>
     )
 }

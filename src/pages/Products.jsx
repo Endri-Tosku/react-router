@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ProductCard from "../components/ProductCard";
+import Navbar from "../components/NavBar"
+
+
 
 const endpoint = "https://fakestoreapi.com/products";
 
@@ -28,21 +31,25 @@ function Products() {
     }, []);
 
     return (
-        <div className="container">
-            <h3>Products List</h3>
-            <div className="products">
-                {
-                    // map dell'array di prodotti 
-                    // per ogni prodotto creiamo una ProductCard
-                    products.map(product => (
-                        <ProductCard
-                            key={product.id}
-                            title={product.title}
-                            price={product.price}
-                        />
-                    ))}
+        <>
+            <Navbar />
+
+            <div className="container">
+                <h3>Products List</h3>
+                <div className="products">
+                    {
+                        // map dell'array di prodotti 
+                        // per ogni prodotto creiamo una ProductCard
+                        products.map(product => (
+                            <ProductCard
+                                key={product.id}
+                                title={product.title}
+                                price={product.price}
+                            />
+                        ))}
+                </div>
             </div>
-        </div>
+        </>
     );
 }
 
