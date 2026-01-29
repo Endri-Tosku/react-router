@@ -6,7 +6,7 @@ function NavBar() {
     const links = [
         { path: '/', label: 'Home' },
         { path: '/chisiamo', label: 'Chi siamo' },
-        { path: '/prodotti', label: 'Lista personaggi' }
+        { path: '/prodotti', label: 'Lista prodotti' }
     ]
 
     return (

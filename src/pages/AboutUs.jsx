@@ -1,10 +1,10 @@
-import Navbar from "../components/NavBar"
+import NavBar from "../components/Navbar"
 
 function AboutUs() {
 
     return (
         <>
-            <Navbar />
+            <NavBar />
 
             <div className="container">
                 <div>
