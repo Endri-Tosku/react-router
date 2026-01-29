@@ -4,7 +4,7 @@ import ProductCard from "../components/ProductCard";
 import NavBar from "../components/Navbar";
 
 
-const endpoint = "https://fakestoreapi.com/products";
+const endpoint = "https://fakestoreapi.com/products/";
 
 function Products() {
 
@@ -46,6 +46,7 @@ function Products() {
                                     key={product.id}
                                 >
                                     <ProductCard
+                                        id={product.id}
                                         title={product.title}
                                         price={product.price}
                                         image={product.image}

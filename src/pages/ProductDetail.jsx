@@ -1,15 +1,40 @@
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom"
 import NavBar from "../components/Navbar";
+import ProductDetailCard from "../components/ProductDetailCard";
+
+const endpointBase = "https://fakestoreapi.com/products/";
 
 function ProductDetail() {
+
+    const { id } = useParams();
+
+    const [product, setProduct] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        axios.get(endpointBase + id)
+            .then(resp => {
+                setProduct(resp.data)
+            })
+            .catch(err => {
+                console.log("errore sulla chiamata", err)
+
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    }, [id])
 
     return (
         <>
             <NavBar />
-            <h2>Ciao sei qui avrai il DETTAGLIO dei prodotti.</h2>
-            <p>
-                Contenuto della LISTA DEI PRODOTTI
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo earum aliquam corporis eveniet corrupti tempore officiis, minima fuga iste cum numquam ex molestias quis aut commodi facere quia. Quaerat, reprehenderit!
-            </p>
+            <h2>DETTAGLIO dei prodotti.</h2>
+
+            {loading && <p className="loader">Loading...</p>}
+            {!loading && product && <ProductDetailCard infoProduct={product} />}
+
         </>
     )
 }
